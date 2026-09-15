@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center bg-white px-4 pt-16"
+      className="min-h-screen flex items-center px-4 pt-16"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -16,19 +16,19 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={100}>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-heading font-bold text-gray-950 mb-4">
                 Jay Bodiongan
               </h1>
             </FadeIn>
 
             <FadeIn delay={200}>
-              <p className="text-xl sm:text-2xl text-gray-600 mb-6">
+              <p className="text-xl sm:text-2xl text-gray-700 mb-6">
                 Full Stack Developer
               </p>
             </FadeIn>
 
             <FadeIn delay={300}>
-              <p className="text-lg text-gray-500 max-w-lg mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 max-w-lg mb-8 leading-relaxed">
                 Turning complex problems into clean, deployable code. I'm a
                 Full-Stack Developer with a CS degree, specializing in React,
                 Php, Node.js, and Python — building web apps, APIs, and database
@@ -46,7 +46,7 @@ export default function Hero() {
                 </a>
                 <a
                   href="#contact"
-                  className="inline-block border-2 border-gray-300 text-gray-700 hover:border-primary hover:text-primary font-semibold px-8 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="inline-block border-2 border-gray-600 text-gray-700 hover:border-primary hover:text-primary font-semibold px-8 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                 >
                   Get In Touch
                 </a>
@@ -60,7 +60,7 @@ export default function Hero() {
                   href="https://github.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 hover:bg-primary text-gray-600 hover:text-white rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="w-12 h-12 bg-white/10 hover:bg-primary text-gray-600 hover:text-white rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   aria-label="GitHub Profile"
                 >
                   <svg
@@ -79,7 +79,7 @@ export default function Hero() {
                   href="https://linkedin.com/in/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 bg-gray-100 hover:bg-primary text-gray-600 hover:text-white rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                  className="w-12 h-12 bg-white/10 hover:bg-primary text-gray-600 hover:text-white rounded-full flex items-center justify-center transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
                   aria-label="LinkedIn Profile"
                 >
                   <svg

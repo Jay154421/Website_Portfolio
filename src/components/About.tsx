@@ -4,7 +4,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 bg-gray-50"
+      className="py-20 bg-[#FAF9F6]/70"
       aria-labelledby="about-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,7 +12,7 @@ export default function About() {
           {/* Photo Placeholder */}
           <FadeIn direction="left" className="w-64 h-64 flex-shrink-0">
             <div
-              className="w-full h-full rounded-lg bg-white border-2 border-gray-200 flex items-center justify-center shadow-sm"
+              className="w-full h-full rounded-lg bg-rose-100 border-2 border-rose-200 flex items-center justify-center shadow-sm"
               aria-label="Profile photo placeholder"
             >
               <span className="text-6xl">📷</span>

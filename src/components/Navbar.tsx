@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 const navLinks = [
   { name: 'Home', href: '#hero' },
@@ -11,6 +11,54 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('hero')
+  const menuRef = useRef<HTMLDivElement>(null)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
+  useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.replace('#', ''))
+    const observers: IntersectionObserver[] = []
+
+    sectionIds.forEach((id) => {
+      const element = document.getElementById(id)
+      if (!element) return
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id)
+          }
+        },
+        { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
+      )
+
+      observer.observe(element)
+      observers.push(observer)
+    })
+
+    return () => observers.forEach((obs) => obs.disconnect())
+  }, [])
+
+  useEffect(() => {
+    if (!isOpen) return
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsOpen(false)
+        buttonRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isOpen])
+
+  useEffect(() => {
+    if (isOpen) {
+      const firstLink = menuRef.current?.querySelector('a') as HTMLElement
+      firstLink?.focus()
+    }
+  }, [isOpen])
 
   return (
     <nav
@@ -29,19 +77,28 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-gray-600 hover:text-primary transition-colors text-sm font-medium"
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '')
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`transition-colors text-sm font-medium ${
+                    isActive
+                      ? 'text-primary font-semibold'
+                      : 'text-gray-600 hover:text-primary'
+                  }`}
+                  aria-current={isActive ? 'true' : undefined}
+                >
+                  {link.name}
+                </a>
+              )
+            })}
           </div>
 
           {/* Mobile Menu Button */}
           <button
+            ref={buttonRef}
             type="button"
             className="md:hidden p-2 text-gray-600 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded"
             onClick={() => setIsOpen(!isOpen)}
@@ -76,17 +133,25 @@ export default function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden pb-4 border-t border-gray-100">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="block px-3 py-2 text-gray-600 hover:text-primary hover:bg-gray-50 rounded transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
+          <div ref={menuRef} className="md:hidden pb-4 border-t border-gray-200">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace('#', '')
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`block px-3 py-2 rounded transition-colors ${
+                    isActive
+                      ? 'text-primary bg-primary/5 font-semibold'
+                      : 'text-gray-600 hover:text-primary hover:bg-gray-100'
+                  }`}
+                  aria-current={isActive ? 'true' : undefined}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
+            })}
           </div>
         )}
       </div>

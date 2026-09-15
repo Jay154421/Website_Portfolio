@@ -43,7 +43,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 bg-gray-50"
+      className="py-20 bg-[#FAF9F6]/70"
       aria-labelledby="projects-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ export default function Projects() {
             <FadeIn key={project.title} delay={index * 150}>
               <article className="bg-white rounded-lg overflow-hidden border border-gray-200 hover:border-primary/30 transition-all shadow-sm hover:shadow-md group h-full">
                 {/* Project Image Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center border-b border-gray-200">
+                <div className="h-48 bg-gradient-to-br from-rose-100 to-rose-200 flex items-center justify-center border-b border-gray-200">
                   <span className="text-4xl group-hover:scale-110 transition-transform">🖼️</span>
                 </div>
 

@@ -8,7 +8,7 @@
   }
   
   body {
-    @apply font-body bg-white text-gray-800;
+    @apply font-body bg-[#FAF9F6] text-gray-800;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -32,6 +32,12 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #7c2219;
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #95271D #f1f1f1;
 }
 
 /* Scroll animation for IntegrationHero */

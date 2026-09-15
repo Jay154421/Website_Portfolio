@@ -7,7 +7,7 @@ const experiences = [
     period: 'Feb 2026 – May 2026',
     description:
       'Participated in the full development life cycle to co-develop B-TRACE, a cross-platform desktop and web application designed to streamline registry workflows. Engineered dynamic frontend logic in ReactJS for applicant validation and built robust backend and database pipelines for real-time tracking. Wrote clean, maintainable, and efficient code to create dynamic UI states and automated document generation tools, enhancing operational efficiency. Utilized Git and GitHub for version control, code reviews, and collaborative development across the engineering team.',
-    technologies: ['React.js', , 'Node.js', 'SQLITE', 'Git', 'GitHub'],
+    technologies: ['React.js', 'Node.js', 'SQLITE', 'Git', 'GitHub'],
   },
   {
     title: 'Senior Developer',
@@ -39,7 +39,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="py-20 bg-white"
+      className="py-20 bg-[#FAF9F6]/70"
       aria-labelledby="experience-heading"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,7 +81,7 @@ export default function Experience() {
                       index % 2 === 0 ? 'md:pl-12' : 'md:pr-12'
                     }`}
                   >
-                    <div className="bg-gray-50 rounded-lg p-6 border border-gray-200 hover:border-primary/30 transition-colors shadow-sm">
+                    <div className="bg-white rounded-lg p-6 border border-gray-200 hover:border-primary/30 transition-colors shadow-sm">
                       <div className="flex flex-wrap items-center gap-2 mb-2">
                         <h3 className="text-xl font-heading font-semibold text-gray-900">
                           {exp.title}

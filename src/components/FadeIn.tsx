@@ -19,11 +19,19 @@ export default function FadeIn({
     threshold: 0.1,
   })
 
+  const prefersReduced =
+    typeof window !== 'undefined' &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
   const directionStyles = {
     up: 'translate-y-8',
     down: '-translate-y-8',
     left: 'translate-x-8',
     right: '-translate-x-8',
+  }
+
+  if (prefersReduced) {
+    return <div className={className}>{children}</div>
   }
 
   return (

@@ -4,14 +4,35 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio</title>
+    <meta name="description" content="Jay Bodiongan - Full Stack Developer specializing in React, Node.js, Python, and modern web technologies. View my projects and get in touch." />
+    <meta property="og:title" content="Jay Bodiongan | Full Stack Developer Portfolio" />
+    <meta property="og:description" content="Full Stack Developer specializing in React, Node.js, Python, and modern web technologies." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Jay Bodiongan | Full Stack Developer Portfolio" />
+    <meta name="twitter:description" content="Full Stack Developer specializing in React, Node.js, Python, and modern web technologies." />
+    <title>Jay Bodiongan | Full Stack Developer Portfolio</title>
     <!-- Google Fonts: Poppins (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      #particles-js {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background-color: #FAF9F6;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   </head>
   <body>
+    <div id="particles-js"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script src="/particles-app.js"></script>
   </body>
 </html>

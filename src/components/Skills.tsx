@@ -113,17 +113,17 @@ const techIcons: Record<string, ReactNode> = {
 const skillCategories = [
   {
     title: 'Frontend',
-    color: 'from-blue-500/10 to-cyan-500/10 border-blue-200',
+    color: 'from-blue-500/10 to-cyan-500/10 border-blue-800/30',
     skills: ['React', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Next.js'],
   },
   {
     title: 'Backend',
-    color: 'from-green-500/10 to-emerald-500/10 border-green-200',
+    color: 'from-green-500/10 to-emerald-500/10 border-green-800/30',
     skills: ['Node.js', 'Python', 'Express', 'PostgreSQL', 'MongoDB', 'REST APIs', 'GraphQL'],
   },
   {
     title: 'Tools & Others',
-    color: 'from-purple-500/10 to-pink-500/10 border-purple-200',
+    color: 'from-purple-500/10 to-pink-500/10 border-purple-800/30',
     skills: ['Git', 'Docker', 'AWS', 'Linux', 'Figma', 'VS Code', 'CI/CD'],
   },
 ]
@@ -137,7 +137,7 @@ function SkillBadge({ name, delay }: { name: string; delay: number }) {
       style={{ animationDelay: `${delay}ms` }}
     >
       {icon && (
-        <span className="text-gray-600 group-hover:text-primary transition-colors duration-300">
+        <span className="text-gray-500 group-hover:text-primary transition-colors duration-300">
           {icon}
         </span>
       )}
@@ -152,7 +152,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-20 bg-gray-50"
+      className="py-20 bg-[#FAF9F6]/70"
       aria-labelledby="skills-heading"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -166,7 +166,7 @@ export default function Skills() {
         </FadeIn>
 
         <FadeIn delay={100}>
-          <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
             A curated collection of technologies I work with to build modern, scalable applications.
           </p>
         </FadeIn>
@@ -179,7 +179,7 @@ export default function Skills() {
           {skillCategories.map((category, catIndex) => (
             <FadeIn key={category.title} delay={catIndex * 150}>
               <div className={`rounded-2xl border p-6`}>
-                <h3 className="text-lg font-heading font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                <h3 className="text-lg font-heading font-semibold text-gray-700 mb-4 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-primary" />
                   {category.title}
                 </h3>
