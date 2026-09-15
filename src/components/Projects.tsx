@@ -2,6 +2,15 @@ import FadeIn from './FadeIn'
 
 const projects = [
   {
+    title: 'AI-Powered Smart Waste System',
+    description:
+      'Engineered an end-to-end automated classification system using Python, integrating custom software logic with hardware interactions. Designed data-handling pipelines and clean user interface features to process real-time system feedback and telemetry. Troubleshot and debugged software and hardware integration issues as they arose, optimizing overall application performance and reliability.',
+    image: null,
+    tags: ['Python', 'Custom Software', 'Hardware Integration'],
+    liveUrl: 'https://github.com/Jay154421',
+    githubUrl: 'https://github.com/Jay154421',
+  },
+  {
     title: 'Project One',
     description:
       'A brief description of this project. It showcases your skills and the technologies used.',

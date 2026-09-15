@@ -2,6 +2,14 @@ import FadeIn from './FadeIn'
 
 const experiences = [
   {
+    title: 'Full-Stack Developer Intern',
+    company: 'Iligan City Civil Registry Office',
+    period: 'Feb 2026 – May 2026',
+    description:
+      'Participated in the full development life cycle to co-develop B-TRACE, a cross-platform desktop and web application designed to streamline registry workflows. Engineered dynamic frontend logic in ReactJS for applicant validation and built robust backend and database pipelines for real-time tracking. Wrote clean, maintainable, and efficient code to create dynamic UI states and automated document generation tools, enhancing operational efficiency. Utilized Git and GitHub for version control, code reviews, and collaborative development across the engineering team.',
+    technologies: ['React.js', , 'Node.js', 'SQLITE', 'Git', 'GitHub'],
+  },
+  {
     title: 'Senior Developer',
     company: 'Tech Company',
     period: '2022 - Present',

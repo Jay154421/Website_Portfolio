@@ -178,7 +178,7 @@ export default function Skills() {
         <div className="space-y-8">
           {skillCategories.map((category, catIndex) => (
             <FadeIn key={category.title} delay={catIndex * 150}>
-              <div className={`rounded-2xl border bg-gradient-to-br ${category.color} p-6`}>
+              <div className={`rounded-2xl border p-6`}>
                 <h3 className="text-lg font-heading font-semibold text-gray-800 mb-4 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-primary" />
                   {category.title}

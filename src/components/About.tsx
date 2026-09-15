@@ -32,11 +32,7 @@ export default function About() {
 
             <FadeIn delay={100}>
               <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                Hello! I'm a passionate full-stack developer with a love for
-                creating beautiful, functional web applications. With several
-                years of experience in the industry, I've worked on projects
-                ranging from small business websites to large-scale enterprise
-                applications.
+                I build web applications that perform — from database design to deployment. Full-Stack Software Engineer (Python, Node.js, React) with a CS degree and hands-on experience shipping production-ready software. Let's build something reliable together.
               </p>
             </FadeIn>
 

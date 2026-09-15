@@ -35,16 +35,16 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">Email</h3>
                 <a
-                  href="mailto:your.email@example.com"
+                  href="mailto:jaybodiongan1230@gmail.com"
                   className="text-primary hover:text-primary-800 transition-colors"
                 >
-                  your.email@example.com
+                  jaybodiongan1230@gmail.com
                 </a>
               </div>
 
               <div>
                 <h3 className="text-lg font-heading font-semibold text-gray-900 mb-2">Location</h3>
-                <p className="text-gray-600">Your City, Country</p>
+                <p className="text-gray-600">Iligan City, Philippines</p>
               </div>
 
               <div>
