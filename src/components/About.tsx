@@ -9,7 +9,7 @@ export default function About() {
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center gap-12">
-          {/* Photo Placeholder */}
+          {/* Photo Placeholder
           <FadeIn direction="left" className="w-64 h-64 flex-shrink-0">
             <div
               className="w-full h-full rounded-lg bg-rose-100 border-2 border-rose-200 flex items-center justify-center shadow-sm"
@@ -17,7 +17,7 @@ export default function About() {
             >
               <span className="text-6xl">📷</span>
             </div>
-          </FadeIn>
+          </FadeIn> */}
 
           {/* Content */}
           <div className="flex-1 text-center md:text-left">
