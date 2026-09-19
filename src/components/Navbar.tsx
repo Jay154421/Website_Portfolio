@@ -17,26 +17,53 @@ export default function Navbar() {
 
   useEffect(() => {
     const sectionIds = navLinks.map((link) => link.href.replace('#', ''))
-    const observers: IntersectionObserver[] = []
+    const navbarHeight = 64
 
-    sectionIds.forEach((id) => {
-      const element = document.getElementById(id)
-      if (!element) return
+    const getMostVisibleSection = (): string => {
+      let bestId = 'hero'
+      let bestVisibility = -1
 
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setActiveSection(id)
-          }
-        },
-        { threshold: 0.3, rootMargin: '-80px 0px -50% 0px' }
-      )
+      for (const id of sectionIds) {
+        const el = document.getElementById(id)
+        if (!el) continue
 
-      observer.observe(element)
-      observers.push(observer)
-    })
+        const rect = el.getBoundingClientRect()
+        const viewportHeight = window.innerHeight
 
-    return () => observers.forEach((obs) => obs.disconnect())
+        const visibleTop = Math.max(rect.top, navbarHeight)
+        const visibleBottom = Math.min(rect.bottom, viewportHeight)
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop)
+
+        if (visibleHeight > bestVisibility) {
+          bestVisibility = visibleHeight
+          bestId = id
+        }
+      }
+
+      return bestId
+    }
+
+    let ticking = false
+
+    const handleScroll = () => {
+      if (ticking) return
+      ticking = true
+
+      requestAnimationFrame(() => {
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50
+        if (atBottom) {
+          setActiveSection(sectionIds[sectionIds.length - 1])
+        } else {
+          setActiveSection(getMostVisibleSection())
+        }
+        ticking = false
+      })
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {

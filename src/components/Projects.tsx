@@ -8,27 +8,32 @@ import thesisImg3 from '../assets/thesis_project/Login Page.png'
 import thesisImg4 from '../assets/thesis_project/student management.png'
 import thesisImg5 from '../assets/thesis_project/Redeem points management.png'
 
+const truncate = (str: string, len: number) =>
+  str.length > len ? str.slice(0, len) + '…' : str
+
 const projects = [
   {
-    title: 'AI-Powered Smart Waste System',
+    title: 'Automated Smart Waste Bin System',
     description:
-      'Engineered an end-to-end automated classification system using Python, integrating custom software logic with hardware interactions.',
+      'A smart waste bin that recognizes what is thrown into it,',
     longDescription:
-      'Engineered an end-to-end automated classification system using Python, integrating custom software logic with hardware interactions. Designed data-handling pipelines and clean user interface features to process real-time system feedback and telemetry. Troubleshot and debugged software and hardware integration issues as they arose, optimizing overall application performance and reliability.',
+      'A smart waste bin that recognizes what is thrown into it, identifies the person throwing it, sorts the waste automatically, and rewards the user with points they can redeem for campus perks.',
     image: null,
     images: [thesisImg1, thesisImg2, thesisImg3, thesisImg4, thesisImg5],
     tags: ['Python', 'Custom Software', 'Hardware Integration', 'IoT'],
     liveUrl: 'https://github.com/Jay154421',
     githubUrl: 'https://github.com/Jay154421',
     role: 'Full-Stack Developer',
-    duration: 'Jan 2024 – May 2024',
+    duration: 'Feb 2026 – May 2026',
     features: [
-      'Real-time waste classification using AI/ML models',
-      'Automated sorting mechanism with hardware integration',
-      'Dashboard for monitoring waste data and analytics',
-      'Student management module for tracking users',
-      'Redeem points system to incentivize proper waste disposal',
-      'Login system with role-based access control',
+      'Auto-classification of waste using a YOLO vision model (confidence threshold 0.5)',
+      'QR-based user identification with the point-earning history attached to that user.',
+      'Automatic sorting via servos that route each waste type to its compartment.',
+      'Points and rewards system: earn points per disposal, redeem them for perks such as printing credits, hoodies, coffee vouchers, or exam kits (configurable in the admin panel)',
+      'Full-bin SMS alerts through the IPROG SMS API when a compartment stays full.',
+      'Auto-open lid controlled by an ultrasonic sensor when a user approaches.',
+      'Real-time camera feed from an ESP32-CAM, with a live feed page and a setup page to connect hardware.',
+      'Admin dashboard with disposal statistics, waste-type distribution, user management, and redemption tracking.'
     ],
   },
   {
@@ -135,11 +140,11 @@ export default function Projects() {
 
                 <div className="p-6">
                   <h3 className="text-xl font-heading font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
+                    {truncate(project.title, 22)}
                   </h3>
 
                   <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-3">
-                    {project.description}
+                    {truncate(project.description, 58)}
                   </p>
 
                   {/* Tags */}
