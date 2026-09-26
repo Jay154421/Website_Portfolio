@@ -12,6 +12,11 @@ export interface RunResult {
   correctChars: number
   incorrectChars: number
   at: string
+  // Combat extras. Optional so runs saved before the beat 'em up still parse.
+  rank?: string
+  cleared?: boolean
+  seconds?: number
+  bestCombo?: number
 }
 
 const WORDS = [
@@ -35,6 +40,24 @@ export function buildPassage(
   const picks: string[] = []
   for (let i = 0; i < wordCount; i++) {
     picks.push(WORDS[Math.floor(random() * WORDS.length)])
+  }
+  return picks.join(' ')
+}
+
+// Sized by character count rather than word count so a full-clean run at the
+// lowest style multiplier always deals enough damage to kill the enemy.
+export function buildPassageFor(
+  targetChars: number,
+  random: () => number = Math.random,
+): string {
+  const picks: string[] = []
+  let length = 0
+  // length counts a trailing space per word, join() only adds n-1, so the
+  // off-by-one is absorbed by running one past the target.
+  while (length <= targetChars) {
+    const word = WORDS[Math.floor(random() * WORDS.length)]
+    picks.push(word)
+    length += word.length + 1
   }
   return picks.join(' ')
 }

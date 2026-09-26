@@ -25,3 +25,16 @@ export function removeKey(key: string): void {
     // Same as above, nothing to clean up if storage is unavailable.
   }
 }
+
+// Probes with a write plus remove so blocked storage is detectable.
+// readJson swallows errors by design, so it can never report them.
+export function isStorageAvailable(): boolean {
+  try {
+    window.localStorage.setItem(PREFIX + 'probe', '1')
+    window.localStorage.removeItem(PREFIX + 'probe')
+    return true
+  } catch {
+    // Private mode, quota, or disabled storage: reads fall back silently.
+    return false
+  }
+}

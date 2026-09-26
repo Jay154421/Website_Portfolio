@@ -16,6 +16,8 @@ const TITLES: Record<string, string> = {
   '/': 'Portfolio',
   '/login': 'Admin login',
   '/admin': 'Local dashboard',
+  '/admin/runs': 'Local dashboard runs',
+  '/admin/session': 'Local dashboard session',
   '/speedtype': 'Speed type',
 }
 
@@ -31,7 +33,7 @@ function App() {
   }, [path])
 
   if (path === '/login') return <Login />
-  if (path === '/admin') return <Admin />
+  if (path === '/admin' || path === '/admin/runs' || path === '/admin/session') return <Admin />
   if (path === '/speedtype') return <SpeedType />
   if (path !== '/') return <NotFound />
 
