@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import AppLink from '../components/AppLink'
-import Passage from '../components/Passage'
+import AppLink from '@/shared/ui/AppLink'
+import Passage from '@/features/portfolio/Passage'
 import {
   bestWpm,
   buildPassage,
@@ -8,7 +8,7 @@ import {
   scoreRun,
   TIME_LIMIT_SECONDS,
   type RunResult,
-} from '../lib/speedtype'
+} from './game'
 
 const TIME_LIMIT_MS = TIME_LIMIT_SECONDS * 1000
 type Status = 'idle' | 'running' | 'done'

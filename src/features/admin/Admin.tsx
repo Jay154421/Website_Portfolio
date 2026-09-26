@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
-import AppLink from '../components/AppLink'
-import { clearSession, getSession, type Session } from '../lib/auth'
-import { navigate } from '../lib/router'
-import { bestWpm, loadRuns, type RunResult } from '../lib/speedtype'
+import AppLink from '@/shared/ui/AppLink'
+import { clearSession, getSession, type Session } from '@/features/auth/auth'
+import { navigate } from '@/shared/lib/router'
+import { bestWpm, loadRuns, type RunResult } from '@/features/speedtype/game'
 
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString(undefined, {

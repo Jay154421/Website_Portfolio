@@ -1,4 +1,4 @@
-import FadeIn from './FadeIn'
+import FadeIn from '@/shared/ui/FadeIn'
 
 export default function About() {
   return (

@@ -1,4 +1,4 @@
-import { readJson, writeJson } from './storage'
+import { readJson, writeJson } from '@/shared/lib/storage'
 
 const RUNS_KEY = 'speedtype.runs'
 const MAX_STORED_RUNS = 10
