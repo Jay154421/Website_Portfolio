@@ -1,21 +1,23 @@
 import { useEffect, useRef } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Login from './pages/Login'
-import Admin from './pages/Admin'
-import SpeedType from './pages/SpeedType'
-import NotFound from './pages/NotFound'
-import { useRoute } from './lib/router'
+import Navbar from '@/shared/layout/Navbar'
+import Hero from '@/features/portfolio/Hero'
+import About from '@/features/portfolio/About'
+import Skills from '@/features/portfolio/Skills'
+import Projects from '@/features/portfolio/Projects'
+import Contact from '@/features/portfolio/Contact'
+import Footer from '@/shared/layout/Footer'
+import Login from '@/features/auth/Login'
+import Admin from '@/features/admin/Admin'
+import SpeedType from '@/features/speedtype/SpeedType'
+import NotFound from '@/pages/NotFound'
+import { useRoute } from '@/shared/lib/router'
 
 const TITLES: Record<string, string> = {
   '/': 'Portfolio',
   '/login': 'Admin login',
   '/admin': 'Local dashboard',
+  '/admin/runs': 'Local dashboard runs',
+  '/admin/session': 'Local dashboard session',
   '/speedtype': 'Speed type',
 }
 
@@ -31,7 +33,7 @@ function App() {
   }, [path])
 
   if (path === '/login') return <Login />
-  if (path === '/admin') return <Admin />
+  if (path === '/admin' || path === '/admin/runs' || path === '/admin/session') return <Admin />
   if (path === '/speedtype') return <SpeedType />
   if (path !== '/') return <NotFound />
 

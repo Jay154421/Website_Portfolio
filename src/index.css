@@ -58,3 +58,123 @@
 .animate-scroll-right {
   animation: scroll-right 30s linear infinite;
 }
+
+/* Speedtype arcade: Win98 chrome geometry plus combat feedback.
+   Keyframes live here instead of the Tailwind config because inline styles and
+   remount-triggered animations both need them emitted unconditionally. */
+
+.st-titlebar {
+  /* Windows 98 active title bar. The pale end is pulled from #1084d0 to
+     #0860A8 so white 13px bold clears WCAG AA across the whole gradient. */
+  background: linear-gradient(90deg, #000080 0%, #0860A8 100%);
+}
+
+.st-raised {
+  box-shadow:
+    inset -1px -1px 0 #0a0a0a,
+    inset 1px 1px 0 #ffffff,
+    inset -2px -2px 0 #808080,
+    inset 2px 2px 0 #dfdfdf;
+}
+
+.st-sunken {
+  box-shadow:
+    inset 1px 1px 0 #0a0a0a,
+    inset -1px -1px 0 #ffffff,
+    inset 2px 2px 0 #808080,
+    inset -2px -2px 0 #dfdfdf;
+}
+
+.st-crt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0 3px,
+    rgba(0, 0, 0, 0.18) 3px 4px
+  );
+}
+
+.st-shake {
+  animation: st-shake 320ms ease-in-out;
+}
+
+/* Body travel on attacks and knockback. The pose swap is instant; this
+   transition is what makes the two figures actually close the gap. */
+.st-lunge {
+  transition: transform 140ms ease-out;
+}
+
+.st-burst {
+  animation: st-burst 350ms ease-out forwards;
+}
+
+.st-float {
+  animation: st-float 750ms ease-out forwards;
+}
+
+.st-ko {
+  animation: st-ko 650ms ease-out forwards;
+}
+
+.st-rank {
+  display: inline-block;
+  animation: rank-pop 220ms ease-out;
+}
+
+@keyframes st-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20% { transform: translate(-6px, 3px); }
+  40% { transform: translate(5px, -3px); }
+  60% { transform: translate(-4px, -2px); }
+  80% { transform: translate(3px, 2px); }
+}
+
+@keyframes st-float {
+  0% { opacity: 0; transform: translateY(8px) scale(0.8); }
+  25% { opacity: 1; transform: translateY(-4px) scale(1.15); }
+  100% { opacity: 0; transform: translateY(-36px) scale(1); }
+}
+
+@keyframes st-ko {
+  0% { opacity: 0; transform: scale(0.4) rotate(-8deg); }
+  30% { opacity: 1; transform: scale(1.15) rotate(-3deg); }
+  70% { opacity: 1; transform: scale(1) rotate(-3deg); }
+  100% { opacity: 0; transform: scale(1.3) rotate(-3deg); }
+}
+
+@keyframes rank-pop {
+  0% { opacity: 0.3; transform: scale(0.5); }
+  60% { transform: scale(1.25); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes st-burst {
+  0% { opacity: 0; transform: scale(0.3) rotate(-8deg); }
+  30% { opacity: 1; transform: scale(1.15) rotate(4deg); }
+  100% { opacity: 0; transform: scale(1.5) rotate(10deg); }
+}
+
+/* Damage numbers are pure flourish: the HP bars already report the same
+   numbers, so hiding them loses nothing. The K.O. banner goes too, because
+   hiding it is animation-driven; the wave counter and status line still
+   report every kill. The lunge keeps its end pose but stops travelling
+   (Stickman zeroes the shift under reduced motion), and the impact burst
+   is flourish like the numbers. */
+@media (prefers-reduced-motion: reduce) {
+  .st-shake,
+  .st-rank {
+    animation: none !important;
+  }
+
+  .st-lunge {
+    transition: none !important;
+  }
+
+  .st-float,
+  .st-ko,
+  .st-burst {
+    display: none !important;
+  }
+}

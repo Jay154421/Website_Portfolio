@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react'
-import FadeIn from './FadeIn'
+import FadeIn from '@/shared/ui/FadeIn'
 
 // Tech logo SVG components
 const techIcons: Record<string, ReactNode> = {
