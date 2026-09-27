@@ -9,6 +9,7 @@ import Footer from '@/shared/layout/Footer'
 import Login from '@/features/auth/Login'
 import Admin from '@/features/admin/Admin'
 import SpeedType from '@/features/speedtype/SpeedType'
+import Dictation from '@/features/dictation/Dictation'
 import NotFound from '@/pages/NotFound'
 import { useRoute } from '@/shared/lib/router'
 
@@ -17,8 +18,8 @@ const TITLES: Record<string, string> = {
   '/login': 'Admin login',
   '/admin': 'Local dashboard',
   '/admin/runs': 'Local dashboard runs',
-  '/admin/session': 'Local dashboard session',
   '/speedtype': 'Speed type',
+  '/dictation': 'Daily Dictation',
 }
 
 function App() {
@@ -33,8 +34,9 @@ function App() {
   }, [path])
 
   if (path === '/login') return <Login />
-  if (path === '/admin' || path === '/admin/runs' || path === '/admin/session') return <Admin />
+  if (path === '/admin' || path === '/admin/runs') return <Admin />
   if (path === '/speedtype') return <SpeedType />
+  if (path === '/dictation') return <Dictation />
   if (path !== '/') return <NotFound />
 
   return (

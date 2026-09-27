@@ -1,4 +1,4 @@
-import { Gauge, House, Keyboard, KeyRound, ListOrdered, LogOut } from 'lucide-react'
+import { Ear, Gauge, Keyboard, ListOrdered, LogOut } from 'lucide-react'
 import clsx from 'clsx'
 import AppLink from '@/shared/ui/AppLink'
 import SidebarNavItem from './SidebarNavItem'
@@ -13,7 +13,6 @@ interface SidebarProps {
 const routes = [
   { to: '/admin', label: 'Overview', icon: Gauge },
   { to: '/admin/runs', label: 'Runs', icon: ListOrdered },
-  { to: '/admin/session', label: 'Session', icon: KeyRound },
 ] as const
 
 const footerLinkClass = 'flex w-full items-center gap-3 rounded-lg px-3 min-h-[44px] text-sm transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary font-normal text-gray-700 hover:bg-gray-100 hover:text-gray-900'
@@ -41,6 +40,10 @@ export default function Sidebar({ activePath, onSignOut, onNavigate, variant = '
             <Keyboard className="h-5 w-5 shrink-0" aria-hidden="true" />
             <span>Speed test</span>
           </AppLink>
+          <AppLink to="/dictation" onClick={onNavigate} className={railLinkClass(false)}>
+            <Ear className="h-5 w-5 shrink-0" aria-hidden="true" />
+            <span>Dictation</span>
+          </AppLink>
           <button type="button" onClick={onSignOut} className={railLinkClass(false)}>
             <LogOut className="h-5 w-5 shrink-0" aria-hidden="true" />
             <span>Sign out</span>
@@ -60,6 +63,10 @@ export default function Sidebar({ activePath, onSignOut, onNavigate, variant = '
         <AppLink to="/speedtype" onClick={onNavigate} className={footerLinkClass}>
           <Keyboard className="h-5 w-5 shrink-0" aria-hidden="true" />
           <span className="truncate">Speed test</span>
+        </AppLink>
+        <AppLink to="/dictation" onClick={onNavigate} className={footerLinkClass}>
+          <Ear className="h-5 w-5 shrink-0" aria-hidden="true" />
+          <span className="truncate">Dictation</span>
         </AppLink>
         <button type="button" onClick={onSignOut} className={footerLinkClass}>
           <LogOut className="h-5 w-5 shrink-0" aria-hidden="true" />
