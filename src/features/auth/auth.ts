@@ -1,4 +1,4 @@
-import { readJson, removeKey, writeJson } from './storage'
+import { readJson, removeKey, writeJson } from '@/shared/lib/storage'
 
 const SESSION_KEY = 'session'
 

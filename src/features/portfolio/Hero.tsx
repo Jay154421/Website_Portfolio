@@ -1,5 +1,5 @@
-import FadeIn from "./FadeIn";
-import pixelImg from "../assets/pixel.png";
+import FadeIn from "@/shared/ui/FadeIn";
+import pixelImg from "@/shared/assets/pixel.png";
 
 export default function Hero() {
   return (

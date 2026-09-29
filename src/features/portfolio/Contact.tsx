@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import FadeIn from './FadeIn'
+import FadeIn from '@/shared/ui/FadeIn'
 
 interface FormData {
   name: string

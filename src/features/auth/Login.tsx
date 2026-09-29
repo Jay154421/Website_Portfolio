@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
-import AppLink from '../components/AppLink'
-import { getSession, saveSession, validateCredentials } from '../lib/auth'
-import { navigate } from '../lib/router'
+import AppLink from '@/shared/ui/AppLink'
+import { getSession, saveSession, validateCredentials } from './auth'
+import { navigate } from '@/shared/lib/router'
 
 interface FormErrors {
   username?: string

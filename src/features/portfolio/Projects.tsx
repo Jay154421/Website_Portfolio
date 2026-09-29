@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import FadeIn from './FadeIn'
+import FadeIn from '@/shared/ui/FadeIn'
 import ProjectModal from './ProjectModal'
 
-import thesisImg1 from '../assets/thesis_project/Automated Smart Waste Bin System.png'
-import thesisImg2 from '../assets/thesis_project/dashboard.png'
-import thesisImg3 from '../assets/thesis_project/Login Page.png'
-import thesisImg4 from '../assets/thesis_project/student management.png'
-import thesisImg5 from '../assets/thesis_project/Redeem points management.png'
+import thesisImg1 from '@/shared/assets/thesis_project/Automated Smart Waste Bin System.png'
+import thesisImg2 from '@/shared/assets/thesis_project/dashboard.png'
+import thesisImg3 from '@/shared/assets/thesis_project/Login Page.png'
+import thesisImg4 from '@/shared/assets/thesis_project/student management.png'
+import thesisImg5 from '@/shared/assets/thesis_project/Redeem points management.png'
 
 const truncate = (str: string, len: number) =>
   str.length > len ? str.slice(0, len) + '…' : str
