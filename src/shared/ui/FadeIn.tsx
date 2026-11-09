@@ -26,8 +26,8 @@ export default function FadeIn({
   const directionStyles = {
     up: 'translate-y-8',
     down: '-translate-y-8',
-    left: 'translate-x-8',
-    right: '-translate-x-8',
+    left: 'translate-x-4',
+    right: '-translate-x-4',
   }
 
   if (prefersReduced) {

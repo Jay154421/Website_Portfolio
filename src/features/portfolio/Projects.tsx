@@ -8,10 +8,37 @@ import thesisImg3 from '@/shared/assets/thesis_project/Login Page.png'
 import thesisImg4 from '@/shared/assets/thesis_project/student management.png'
 import thesisImg5 from '@/shared/assets/thesis_project/Redeem points management.png'
 
+import eduCheckTeacherPortal from '@/shared/assets/EduCheck/teacher portal.png'
+import eduCheckLogin from '@/shared/assets/EduCheck/Loginform.png'
+import eduCheckRegister from '@/shared/assets/EduCheck/register.png'
+import eduCheckTeacherSubjects from '@/shared/assets/EduCheck/techer portal subject.png'
+import eduCheckTeacherStudents from '@/shared/assets/EduCheck/teacher_students.png'
+import eduCheckTeacherAttendance from '@/shared/assets/EduCheck/teacher_attendance.png'
+import eduCheckTeacherGrades from '@/shared/assets/EduCheck/teacher_grades.png'
+import eduCheckTeacherReport from '@/shared/assets/EduCheck/teacher_report.png'
+import eduCheckStudentDashboard from '@/shared/assets/EduCheck/student_dashboard.png'
+import eduCheckStudentAttendance from '@/shared/assets/EduCheck/student_attendance.png'
+import eduCheckStudentGrades from '@/shared/assets/EduCheck/student_grades.png'
+import eduCheckStudentProfile from '@/shared/assets/EduCheck/student_profile.png'
+
+interface Project {
+  title: string
+  description: string
+  longDescription: string
+  image: null
+  images: string[]
+  tags: string[]
+  liveUrl?: string
+  githubUrl: string
+  role: string
+  duration: string
+  features: string[]
+}
+
 const truncate = (str: string, len: number) =>
   str.length > len ? str.slice(0, len) + '…' : str
 
-const projects = [
+const projects: Project[] = [
   {
     title: 'Automated Smart Waste Bin System',
     description:
@@ -24,7 +51,7 @@ const projects = [
     liveUrl: 'https://github.com/Jay154421',
     githubUrl: 'https://github.com/Jay154421',
     role: 'Full-Stack Developer',
-    duration: 'Feb 2026 – May 2026',
+    duration: 'Feb 2026 – May 2026, THESIS Project',
     features: [
       'Auto-classification of waste using a YOLO vision model (confidence threshold 0.5)',
       'QR-based user identification with the point-earning history attached to that user.',
@@ -37,60 +64,39 @@ const projects = [
     ],
   },
   {
-    title: 'Project One',
+    title: 'EduCheck',
     description:
-      'A brief description of this project. It showcases your skills and the technologies used.',
+      'Grading and attendance system for teachers and students.',
     longDescription:
-      'A brief description of this project. It showcases your skills and the technologies used. This project demonstrates modern web development practices with a focus on performance and user experience.',
+      'EduCheck is a grading and attendance system for a school. Teachers manage subjects, enroll students, mark attendance, record grades per term, and export reports. Students log in to see their own attendance, grades, and profile. The React app talks directly to Supabase Auth, Postgres, and Storage, so there is no custom backend server.',
     image: null,
-    images: [],
-    tags: ['React', 'TypeScript', 'Tailwind'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-one',
-    role: 'Frontend Developer',
-    duration: '2024',
-    features: [
-      'Responsive design with Tailwind CSS',
-      'Type-safe development with TypeScript',
-      'Component-based architecture with React',
+    images: [
+      eduCheckTeacherPortal,
+      eduCheckLogin,
+      eduCheckRegister,
+      eduCheckTeacherSubjects,
+      eduCheckTeacherStudents,
+      eduCheckTeacherAttendance,
+      eduCheckTeacherGrades,
+      eduCheckTeacherReport,
+      eduCheckStudentDashboard,
+      eduCheckStudentAttendance,
+      eduCheckStudentGrades,
+      eduCheckStudentProfile,
     ],
-  },
-  {
-    title: 'Project Two',
-    description:
-      'Another amazing project you worked on. Highlight the key features and your contributions.',
-    longDescription:
-      'Another amazing project you worked on. Highlight the key features and your contributions. Built with a focus on scalability and clean architecture.',
-    image: null,
-    images: [],
-    tags: ['Node.js', 'PostgreSQL', 'Express'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-two',
-    role: 'Backend Developer',
-    duration: '2024',
-    features: [
-      'RESTful API design with Express.js',
-      'Database optimization with PostgreSQL',
-      'Authentication and authorization system',
-    ],
-  },
-  {
-    title: 'Project Three',
-    description:
-      'A third project that demonstrates your expertise. What problems did it solve?',
-    longDescription:
-      'A third project that demonstrates your expertise. What problems did it solve? This project tackles real-world challenges with innovative solutions.',
-    image: null,
-    images: [],
-    tags: ['Python', 'Django', 'REST API'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com/yourusername/project-three',
+    tags: ['React', 'Vite', 'Supabase', 'Tailwind CSS'],
+    githubUrl: 'https://github.com/Jay154421/Grading-and-Attendance-System',
     role: 'Full-Stack Developer',
-    duration: '2024',
+    duration: '3rd Year BSCS, CSELEC3',
     features: [
-      'Django REST framework for API development',
-      'Automated testing and CI/CD pipeline',
-      'Performance monitoring and logging',
+      'Role-based login that opens a teacher portal or a student portal',
+      'Teachers create subjects, enroll students, and create student logins',
+      'Attendance marked per subject and date as present, absent, late, or excused',
+      'Grades recorded per term with a cumulative average that skips missing terms',
+      'Attendance and grade reports exported to CSV or PDF',
+      'Students view their own attendance records, grades, and profile',
+      'Profile photo upload stored in Supabase Storage',
+      'Sidebar collapses to a rail on desktop and a drawer on mobile',
     ],
   },
 ]
@@ -161,16 +167,18 @@ export default function Projects() {
 
                   {/* Links */}
                   <div className="flex gap-4">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-primary hover:text-primary-800 text-sm font-medium transition-colors"
-                      aria-label={`View ${project.title} live demo`}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      Live Demo →
-                    </a>
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary-800 text-sm font-medium transition-colors"
+                        aria-label={`View ${project.title} live demo`}
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        Live Demo →
+                      </a>
+                    )}
                     <a
                       href={project.githubUrl}
                       target="_blank"
